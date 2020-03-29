@@ -6,7 +6,7 @@ category_routes = Blueprint('category_routes', __name__,  template_folder='')
 @category_routes.route('/categoriesByUser/<useruid>')
 def categories(useruid):
     try :
-        data = categories_service.get_categories()
+        data = categories_service.get_categories(useruid)
         auth_header = request.headers.get('Authorization')
         return data
     except Exception as e:

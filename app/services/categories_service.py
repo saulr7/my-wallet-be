@@ -4,12 +4,12 @@ from psycopg2.extras import RealDictCursor
 from app.config import BD
 from app.models import categories_by_useruid
 
-def get_categories():
+def get_categories(useruid):
     
     try:
         conn = psycopg2.connect(BD.CONNECT_STR)
         cursor = conn.cursor(cursor_factory=RealDictCursor)
-        cursor.callproc("get_categories_by_useruid",('PyhKqeLX6ZhezX2EAvyHn1IiW772' ,))
+        cursor.callproc("get_categories_by_useruid",(str(useruid) ,))
         conn.commit()
         rows = cursor.fetchall()
         responList = []
