@@ -1,0 +1,9 @@
+bcrypt==3.1.7
+decorator==4.4.2
+Flask==1.1.1
+Flask-Cors==3.0.8
+Jinja2==2.10.3
+psycopg2-binary==2.8.4
+pyodbc==4.0.30
+gunicorn==19.9.0
+
