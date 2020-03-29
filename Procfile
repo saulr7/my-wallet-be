@@ -1,1 +1,1 @@
-python3.8.2 app/app.py
+web: gunicorn app:app
