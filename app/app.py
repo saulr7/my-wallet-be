@@ -1,14 +1,14 @@
 from flask import Flask
-# from routes import routes , user_routes, transaction_routes
+from routes import routes , user_routes, transaction_routes
 from flask_cors import CORS
 
 def create_app():
     app = Flask(__name__)
-    # CORS(app)
+    CORS(app)
 
-    # app.register_blueprint(routes.category_routes)
-    # app.register_blueprint(user_routes.user_routes)
-    # app.register_blueprint(transaction_routes.transaction_routes)
+    app.register_blueprint(routes.category_routes)
+    app.register_blueprint(user_routes.user_routes)
+    app.register_blueprint(transaction_routes.transaction_routes)
 
     @app.route('/', methods=['GET'])
     def index():
