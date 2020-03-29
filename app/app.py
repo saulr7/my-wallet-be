@@ -5,7 +5,7 @@ from flask_cors import CORS
 
 def create_app():
     app = Flask(__name__)
-    CORS(app)
+    CORS(app, resources={r"/*": {"origins": "*"}})
 
     app.register_blueprint(routes.category_routes)
     app.register_blueprint(user_routes.user_routes)
@@ -13,7 +13,6 @@ def create_app():
 
     @app.route('/', methods=['GET'])
     def index():
-        print("Here")
         return "Test", 200
 
     if __name__ == "__main__":
