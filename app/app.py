@@ -14,7 +14,6 @@ def create_app():
 
     @app.route('/', methods=['GET'])
     @cross_origin(headers=['Content-Type'])
-    @cross_origin(origin='*',headers=['Content- Type','Authorization'])
     def index():
         return "Test", 200
 
