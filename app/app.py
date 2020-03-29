@@ -3,7 +3,7 @@ from flask import Flask
 from flask_cors import CORS
 
 app = Flask(__name__)
-CORS(app)
+# CORS(app)
 
 # app.register_blueprint(routes.category_routes)
 # app.register_blueprint(user_routes.user_routes)
