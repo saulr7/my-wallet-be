@@ -3,9 +3,6 @@ import psycopg2
 from psycopg2.extras import RealDictCursor
 import bcrypt
 
-import psycopg2
-from psycopg2.extras import RealDictCursor
-
 from config import BD
 
 def add_user(user):
@@ -22,7 +19,7 @@ def add_user(user):
             print(row)
         cursor.close()
         conn.close()
-        return user
+        return "added"
     except (Exception, psycopg2.DatabaseError)  as e:
         print(e)
         raise Exception(e)

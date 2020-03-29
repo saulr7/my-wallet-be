@@ -1,12 +1,13 @@
-from flask import Blueprint, render_template, jsonify
+from flask import Blueprint, render_template, jsonify, request
 from services import categories_service
 
 category_routes = Blueprint('category_routes', __name__,  template_folder='')
 
-@category_routes.route('/categories')
-def categories():
+@category_routes.route('/categoriesByUser/<useruid>')
+def categories(useruid):
     try :
         data = categories_service.get_categories()
+        auth_header = request.headers.get('Authorization')
         return data
     except Exception as e:
         resp = {
