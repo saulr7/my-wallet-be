@@ -1,1 +1,1 @@
-gunicorn wsgi:app.app
+python3.8.2 app/app.py
