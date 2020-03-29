@@ -11,8 +11,8 @@ app.register_blueprint(transaction_routes.transaction_routes)
 
 @app.route('/')
 def index():
-   
-    return "Test"
+    print("Here")
+    return "Test", 200
 
 if __name__ == "__main__":
     # app.run(debug= True, port= 5002)
