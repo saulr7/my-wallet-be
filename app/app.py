@@ -13,7 +13,7 @@ def create_app():
     app.register_blueprint(transaction_routes.transaction_routes)
 
     @app.route('/', methods=['GET'])
-    @cross_origin()
+    @cross_origin(headers=['Content-Type'])
     def index():
         return "Test", 200
 
