@@ -2,9 +2,9 @@
 import psycopg2
 from psycopg2.extras import RealDictCursor
 
-from config import BD
+from app.config import BD
 
-from models import transaction_model
+from app.models import transaction_model
 
 def add_transaction(trans):
     

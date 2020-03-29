@@ -1,5 +1,5 @@
 from flask import Blueprint, render_template, jsonify, request
-from services import categories_service
+from app.services import categories_service
 
 category_routes = Blueprint('category_routes', __name__,  template_folder='')
 

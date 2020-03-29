@@ -3,7 +3,7 @@ import psycopg2
 from psycopg2.extras import RealDictCursor
 import bcrypt
 
-from config import BD
+from app.config import BD
 
 def add_user(user):
     

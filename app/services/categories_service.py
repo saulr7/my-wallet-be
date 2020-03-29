@@ -1,8 +1,8 @@
 import psycopg2
 from psycopg2.extras import RealDictCursor
 
-from config import BD
-from models import categories_by_useruid
+from app.config import BD
+from app.models import categories_by_useruid
 
 def get_categories():
     
