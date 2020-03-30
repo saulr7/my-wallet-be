@@ -44,7 +44,7 @@ def add_category(category):
 
 
 def remove_category(categoryId, useruid):
-    
+    print(categoryId, useruid)
     try:
         conn = psycopg2.connect(BD.CONNECT_STR)
         cursor = conn.cursor(cursor_factory=RealDictCursor)

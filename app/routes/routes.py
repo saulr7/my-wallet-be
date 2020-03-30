@@ -34,7 +34,7 @@ def addCategory():
         }
         return resp, 400
 
-@category_routes.route('/removeCategory/<int:categoryId>/useruid' )
+@category_routes.route('/removeCategory/<int:categoryId>/<useruid>' ,methods=['GET'])
 def removeCategory(categoryId, useruid):
     try :
         data = categories_service.remove_category(categoryId, useruid)
