@@ -23,3 +23,39 @@ def get_categories(useruid):
         return responDic
     except Exception as e:
         raise Exception(e)
+
+
+def add_category(category):
+    
+    try:
+        conn = psycopg2.connect(BD.CONNECT_STR)
+        cursor = conn.cursor(cursor_factory=RealDictCursor)
+        cursor.callproc("add_category",( category.get('Category', ''), str(category.get('UserUID', '')) ,))
+        conn.commit()
+        rows = cursor.fetchall()
+        responList = []
+        for row in rows:
+            print(row)
+        cursor.close()
+        conn.close()
+        return "added"
+    except Exception as e:
+        raise Exception(e)
+
+
+def remove_category(categoryId, useruid):
+    
+    try:
+        conn = psycopg2.connect(BD.CONNECT_STR)
+        cursor = conn.cursor(cursor_factory=RealDictCursor)
+        cursor.callproc("remove_category",( int(categoryId), str(useruid) ,))
+        conn.commit()
+        rows = cursor.fetchall()
+        responList = []
+        for row in rows:
+            print(row)
+        cursor.close()
+        conn.close()
+        return "removed"
+    except Exception as e:
+        raise Exception(e)

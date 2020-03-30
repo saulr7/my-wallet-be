@@ -32,3 +32,16 @@ def get_transaction(userid):
         }
         print(e)
         return resp, 400
+
+@transaction_routes.route('/removeTransaction/<int:transactionId>/<useruid>')
+def remove_transaction(transactionId,useruid):
+    try :
+        data = transaction_services.remove_transaction(transactionId, useruid)
+        return data
+    except Exception as e:
+        resp = {
+            "message" : "something went wrong" ,
+            "err" :  str(e)
+        }
+        print(e)
+        return resp, 400

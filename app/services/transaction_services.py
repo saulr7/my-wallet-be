@@ -29,7 +29,7 @@ def get_transaction(UserUID):
     try:
         conn = psycopg2.connect(BD.CONNECT_STR)
         cursor = conn.cursor(cursor_factory=RealDictCursor)
-        cursor.callproc("get_transaction_byUser",( 'PyhKqeLX6ZhezX2EAvyHn1IiW772' ,))
+        cursor.callproc("get_transaction_byUser",( str(UserUID) ,))
         conn.commit()
         rows = cursor.fetchall()
         responList = []
@@ -60,3 +60,18 @@ def _validateUData(trans):
     if trans.get("UserUID", "") == "":
         raise Exception("Expected user Id")
         return
+
+def remove_transaction(transactionId, useruid):
+    
+    try:
+        conn = psycopg2.connect(BD.CONNECT_STR)
+        cursor = conn.cursor(cursor_factory=RealDictCursor)
+        cursor.callproc("REMOVE_TRANSACTION",( int(transactionId) ,str(useruid) ,))
+        conn.commit()
+        rows = cursor.fetchall()
+        cursor.close()
+        conn.close()
+        return "removed"
+    except (Exception, psycopg2.DatabaseError)  as e:
+        print(e)
+        raise Exception(e)
